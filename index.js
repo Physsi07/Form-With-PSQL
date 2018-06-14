@@ -49,8 +49,8 @@ app.get('/users', (req, res) => {
 app.post('/post', (req, res) => {
   var info = req.body;
   var query = {
-      text: 'INSERT INTO userdata(id, email, states) VALUES($1, $2, $3)',
-      values: [info.id, info.email, info.states]
+      text: 'INSERT INTO userdata(email, states) VALUES($1, $2)',
+      values: [info.email, info.states]
   }
 
   pool.query(query, (req, res) => {
