@@ -3,18 +3,18 @@ const app = express();
 const port = 8080
 const { Pool, Client } = require('pg');
 
-// const pool = new Pool({
-//     user: 'postgres',
-//     host: 'localhost',
-//     database: 'postgres',
-//     password: '#BeastMode27',
-//     port: 5432,
-// });
-
-const pool = new Pool ({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'postgres',
+    password: '#BeastMode27',
+    port: 5432,
 });
+
+// const pool = new Pool ({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: true
+// });
 
 let newObj = {};
 app.use(express.static('public'));
@@ -25,7 +25,7 @@ app.use(parser.urlencoded({extended: true}));
 
 // *****************************************************************************************************************************/
 app.get('/grocery', (req, res) => {
-  res.render('Grocery', {
+  res.render('grocery', {
     groceries: ['bananas', 'milk', 'lettuce', 'Eggs', 'Juice', 'Bathing Soap'],
       hobbies: ['Gym', 'Baseball', 'coding', 'drink a lot']
   })
