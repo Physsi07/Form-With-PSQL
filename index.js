@@ -2,13 +2,20 @@ const express = require('express');
 const app = express();
 const port = 8080
 const { Pool, Client } = require('pg');
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'postgres',
-    password: '#BeastMode27',
-    port: 5432,
+
+// const pool = new Pool({
+//     user: 'postgres',
+//     host: 'localhost',
+//     database: 'postgres',
+//     password: '#BeastMode27',
+//     port: 5432,
+// });
+
+const pool = new Pool ({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
 });
+
 let newObj = {};
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -25,7 +32,6 @@ app.get('/grocery', (req, res) => {
 });
 
 // *****************************************************************************************************************************/
-
 
 app.get('/users', (req, res) => {
 
@@ -62,6 +68,6 @@ app.get('/hats', (req, res) => {
     })
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log(`Listening to ${port}`);
 });
