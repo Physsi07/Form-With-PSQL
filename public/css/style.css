@@ -49,3 +49,15 @@ input{
 .display{
   display: none;
 }
+
+input[type="submit"]{
+  color: white;
+  width: 80px;
+  height: auto;
+  text-align: center;
+  padding: 5px;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.3);
+}
