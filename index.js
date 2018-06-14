@@ -3,18 +3,18 @@ const app = express();
 const port = 8080
 const { Pool, Client } = require('pg');
 
-// const pool = new Pool({
-//     user: 'postgres',
-//     host: 'localhost',
-//     database: 'postgres',
-//     password: '#BeastMode27',
-//     port: 5432,
-// });
-
-const pool = new Pool ({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'postgres',
+    password: '#BeastMode27',
+    port: 5432,
 });
+
+// const pool = new Pool ({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: true
+// });
 
 let newObj = {};
 app.use(express.static('public'));
