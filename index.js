@@ -56,15 +56,9 @@ app.post('/post', (req, res) => {
     console.log(query);
   });
 
-  res.redirect('Users#');
 
-});
+  res.redirect('Users');
 
-// *****************************************************************************************************************************/
-app.get('/hats', (req, res) => {
-    res.render('hats', {
-
-    })
 });
 
 app.listen(process.env.PORT || port, () => {
