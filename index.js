@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const port = 8080
 const { Pool, Client } = require('pg');
-
+//
 // const pool = new Pool({
 //     user: 'postgres',
 //     host: 'localhost',
@@ -17,11 +17,11 @@ const pool = new Pool ({
 });
 
 let newObj = {};
-app.use(express.static('public'));
-app.set('view engine', 'ejs');
-var parser = require('body-parser');
-app.use(express.json());
+let parser = require('body-parser');
 app.use(parser.urlencoded({extended: true}));
+app.use(express.static('public'));
+app.use(express.json());
+app.set('view engine', 'ejs');
 
 // *****************************************************************************************************************************/
 app.get('/grocery', (req, res) => {
@@ -35,7 +35,7 @@ app.get('/grocery', (req, res) => {
 app.get('/users', (req, res) => {
 
   pool.query('select * from userdata', (request, response) => {
-      // console.log(res.rows);
+
       newObj = response.rows;
 
       res.render('users', {
