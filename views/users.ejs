@@ -11,10 +11,6 @@
 <body>
   <div class="container">
 
-    <div class="nav">
-      <%- include('partials/nav') %>
-    </div>
-
     <div class="jumbotron">
       <image src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/120px-User_icon_2.svg.png" id="logo" />
       <h1>All My Users</h1>
@@ -55,6 +51,11 @@
             <form class="register" action="post" method="POST">
 
               <div class="info">
+                <!-- ID -->
+                <div>
+                  <label for="InputID">ID</label>
+                  <input type="number" id="InputID" placeholder="Your ID" name="id" required="true">
+                </div>
 
                 <!-- EMAIL -->
                 <div>
@@ -69,6 +70,7 @@
                 <select id="ctry" name="country">
                   <option value="CH">Choose Country</option>
                   <option value="USA">USA</option>
+                  <option value="D.R.">DOM. Rep</option>
                 </select>
               </div>
               <br>
@@ -80,7 +82,7 @@
               </div>
 
               <div class="submitDiv">
-                <input id="submit" type="submit" value="submit">
+                <input type="submit" value="submit">
               </div>
             </form>
 
