@@ -1,11 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 8080
-const {
-  Pool,
-  Client
-} = require('pg');
-
+const { Pool, Client} = require('pg');
 // const pool = new Pool({
 //   user: 'postgres',
 //   host: 'localhost',
